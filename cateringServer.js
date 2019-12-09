@@ -23,6 +23,7 @@ function createCaterings() {
 var caterings = createCaterings()
 
 app.get('/catering/', (req, res) => res.send(caterings))
+
 app.get('/catering/:eventId', function(req, res) {
     var returnList = []
     for(var i = 0; i< caterings.length; i++) {
