@@ -21,12 +21,13 @@ jobs:
       run: |
         # install dependencies
         
-        npm ci
+        pwd
+        npm install
         # Run server
         
         node cateringServer.js &
         kill %1
-        - uses: actions/checkout@master
+    - uses: actions/checkout@master
     - name: Publish to Docker Repository
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
