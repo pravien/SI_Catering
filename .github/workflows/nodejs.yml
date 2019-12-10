@@ -30,12 +30,11 @@ jobs:
         kill %1
     - uses: actions/checkout@master
     - name: Publish to Docker Repository
-      uses: jerray/publish-docker-action@master
+      uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: cphjs/catering
+        name: cphjs/si
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }} 
-        repository: cphjs/si
-        tags: $GITHUB_SHA
+        snapshot: true
       env:
         CI: true
