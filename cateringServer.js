@@ -22,9 +22,9 @@ function createCaterings() {
 
 var caterings = createCaterings()
 
-app.get('/catering/', (req, res) => res.send(caterings))
+app.get('/', (req, res) => res.send(caterings))
 
-app.get('/catering/:eventId', function(req, res) {
+app.get('/:eventId', function(req, res) {
     var returnList = []
     for(var i = 0; i< caterings.length; i++) {
         var bool = caterings[i].eventExists(req.params.eventId)
@@ -35,7 +35,7 @@ app.get('/catering/:eventId', function(req, res) {
     res.send(returnList)
 })
 
-app.post('/catering/:cateringId', function(req, res) {
+app.post('/:cateringId', function(req, res) {
     if(req.body.eventId === null || undefined) {
         res.sendStatus(422)
         return "";
