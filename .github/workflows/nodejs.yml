@@ -40,4 +40,4 @@ jobs:
       env:
         CI: true
     - name: 'Test'
-      run: echo "${{ steps.publish.outputs.snapshot-tag }}"
+      run: echo "${{ steps.publish.outputs.snapshot-tag }}" && echo "${{ steps.publish.outputs.tag }}"
