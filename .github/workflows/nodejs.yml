@@ -35,6 +35,6 @@ jobs:
         name: pravien/catering
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }} 
-        tags: "$GITHUB_SHA"
+        build_args: "-t pravien/catering:$GITHUB_SHA"
       env:
         CI: true
