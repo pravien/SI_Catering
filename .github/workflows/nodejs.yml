@@ -2,9 +2,6 @@ name: On Push build and publish docker
 
 on: [push]
 
-env: 
-  IMAGE_REGISTRY: cphjs/si_catering
-
 jobs:
   build:
 
@@ -38,7 +35,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }} 
-        repository: $IMAGE_REGISTRY
+        repository: cphjs/si_catering
         tags: ${{ github.sha }}
       env:
         CI: true
@@ -47,4 +44,4 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: set image --record deployment/catering-deployment catering=$IMAGE_REGISTRY:${{ github.sha }}
+        args: set image --record deployment/catering-deployment catering=cphjs/si_catering:${{ github.sha }}
