@@ -40,5 +40,9 @@ jobs:
         tags: ${{ github.sha }}
       env:
         CI: true
-    - name: 'Test'
-      run: echo "${{ steps.publish.outputs.snapshot-tag }}" && echo "${{ steps.publish.outputs.tag }}"
+    - uses: steebchen/kubectl@master
+      name: Deploy to kubernetes
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: set image --record deployment/catering-deployment catering=${{ github.repository }}:${{ github.sha }}
