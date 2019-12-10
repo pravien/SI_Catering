@@ -38,3 +38,5 @@ jobs:
         snapshot: true
       env:
         CI: true
+    - name: 'Test'
+      run: echo "${{ outputs.snapshot-tag }}"
