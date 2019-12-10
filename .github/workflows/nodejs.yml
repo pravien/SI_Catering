@@ -30,6 +30,7 @@ jobs:
         kill %1
     - uses: actions/checkout@master
     - name: Publish to Docker Repository
+      id: publish
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: cphjs/si
@@ -39,4 +40,4 @@ jobs:
       env:
         CI: true
     - name: 'Test'
-      run: echo "${{ outputs.snapshot-tag }}"
+      run: echo "${{ steps.publish.outputs.snapshot-tag }}"
