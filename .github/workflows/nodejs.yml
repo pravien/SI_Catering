@@ -32,10 +32,10 @@ jobs:
     - name: Publish to Docker Repository
       uses: jerray/publish-docker-action@master
       with:
-        name: pravien/catering
+        name: cphjs/catering
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }} 
-        repository: pravien/catering
-        build_args: "-t pravien/catering:$GITHUB_SHA"
+        repository: cphjs/si
+        build_args: "-t cphjs/catering:${GITHUB_SHA}"
       env:
         CI: true
