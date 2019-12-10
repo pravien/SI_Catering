@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catering-deployment
+  labels:
+    run: catering
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: catering
+  template:
+    metadata:
+      labels:
+        run: catering
+    spec:
+      containers:
+      - name: catering
+        image: pravien/catering
+        ports:
+        - containerPort: 3000
