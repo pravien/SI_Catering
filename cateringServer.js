@@ -50,4 +50,15 @@ app.post('/:cateringId', function(req, res) {
     res.status(400).send({message: "Cant find catering with eventid"});
 })
 
+app.post('/catering', function(req, res) {
+    var cateringId = Math.random()
+    if(caterings.find(a => a.cateringid == cateringId)) {
+         cateringId = Math.random()
+    }
+    var catering = new Catering(cateringId, req.body.name, req.body.typeOfFood, req.body.address)
+    res.send(catering)
+    res.status(200).send({hej: "hejsa"});
+})
+
+
 app.listen(port, () => console.log(`List of all caterings ${caterings}!`))
